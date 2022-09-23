@@ -4,4 +4,5 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
+import "@fontsource/albert-sans"
 import "./src/styles/global.css"

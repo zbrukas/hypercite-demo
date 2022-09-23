@@ -1,121 +1,118 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
+import Pills from "../components/pills"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
-
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
-
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
-
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
+    <div className="mb-12">
+      <Pills />
     </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
+    <h1 className="text-3xl mb-2 font-bold">
+      Catalyst Fund Limited Partnership II vs. IMAX Corporation
+    </h1>
+    <h2 className="text-xl font-bold mb-2">View Documents</h2>
+    <div className="w-fit py-3 px-1 border-red-700 rounded border-2 mb-4">
+      <span className="mr-2">
+        <b>Bundle:</b> 01. Master Bundle
+      </span>
+      <button className="bg-neutral-700 px-3 py-2 text-white text-xs rounded-md mr-2">
+        Select Bundle
+      </button>
+    </div>
+    <p className="mb-4">J: Factum</p>
+    {[
+      "Upload File(s)",
+      "Remove All Documents",
+      "Update All Documents",
+      "View Notes",
+    ].map(val => (
+      <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl mr-2 mb-2">
+        {val}
+      </button>
     ))}
+    <table className="border border-gray-300 mb-8" width="100%">
+      <thead>
+        <tr>
+          <td className="py-4 pl-2">
+            <b>J:</b>
+          </td>
+          <td className="py-4">
+            <span className="bg-sky-700 py-2 px-4 text-white font-bold text-xs rounded-xl mr-2 mb-2">
+              Factum
+            </span>
+          </td>
+          <td className="py-4">
+            <b>(1 document, 25 pages)</b>
+          </td>
+        </tr>
+        <tr className="bg-gray-300">
+          <th className="py-2" colSpan={2} />
+          <th className="py-2" align="left">
+            Index
+          </th>
+          <th className="py-2" align="left">
+            Name
+          </th>
+          <th className="py-2" align="left">
+            Date
+          </th>
+          <th className="py-2" align="left">
+            Bundle Number (145F)
+          </th>
+          <th className="py-2" align="left">
+            Master Bundle
+            <br />
+            Included-Inserted-Tabbed
+          </th>
+          <th className="py-2" colSpan={3} />
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="py-2 pl-2">
+            <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+              Move
+            </button>
+          </td>
+          <td className="py-2">
+            <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+              Remove
+            </button>
+          </td>
+          <td className="py-2">0001</td>
+          <td className="py-2">
+            Factum - Moving Party, IMAX 24-Sep-2008 - Final
+          </td>
+          <td className="py-2">11 August 2022</td>
+          <td className="py-2">
+            <span className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+              1:J1 - J25
+            </span>
+          </td>
+          <td className="py-2">Yes-No-No</td>
+          <td className="py-2">
+            <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+              View
+            </button>
+          </td>
+          <td className="py-2">
+            <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+              PDF
+            </button>
+          </td>
+          <td className="py-2">
+            <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+              Open Original (.pdf)
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr className="h-0.5 bg-gray-400" />
   </Layout>
 )
 

@@ -1074,6 +1074,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/albert-sans@4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/albert-sans/-/albert-sans-4.5.0.tgz#9cb4c8d5d2edf123541c767264d06d2b67d58ee8"
+  integrity sha512-7xyE/0DRYcGGDmt1A3xVWUW77u0w4FvUFkUAOYkKUw2HyugsUVs2uHsGDoOjM11DNaWLSr2j8I5UaKPj8arEDg==
+
 "@gatsbyjs/parcel-namer-relative-to-cwd@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/parcel-namer-relative-to-cwd/-/parcel-namer-relative-to-cwd-1.8.0.tgz#5df3840207014c1c217d4fb430a9853620bc9e64"
