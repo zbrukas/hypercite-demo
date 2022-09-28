@@ -50,7 +50,7 @@ const IndexPage = () => (
           </td>
         </tr>
         <tr className="bg-gray-300">
-          <th className="py-2" colSpan={2} />
+          <th className="py-2" colSpan={2} aria-labelledby="controls" />
           <th className="py-2" align="left">
             Index
           </th>
@@ -68,12 +68,12 @@ const IndexPage = () => (
             <br />
             Included-Inserted-Tabbed
           </th>
-          <th className="py-2" colSpan={3} />
+          <th className="py-2" colSpan={3} aria-labelledby="actions" />
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td className="py-2 pl-2">
+          <td className="py-2 pl-2" aria-label="controls">
             <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
               Move
             </button>
@@ -94,7 +94,7 @@ const IndexPage = () => (
             </span>
           </td>
           <td className="py-2">Yes-No-No</td>
-          <td className="py-2">
+          <td className="py-2" aria-label="actions">
             <Link to="/detail/1">
               <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
                 View
