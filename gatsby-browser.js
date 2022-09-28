@@ -5,4 +5,5 @@
  */
 
 import "@fontsource/albert-sans"
+import "intro.js/introjs.css"
 import "./src/styles/global.css"

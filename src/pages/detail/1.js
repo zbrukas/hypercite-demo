@@ -4,8 +4,10 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/solid"
+import { Hints } from "intro.js-react"
 import * as React from "react"
 import { Document, Page } from "react-pdf/dist/umd/entry.webpack5"
+import { useUID } from "react-uid"
 
 import Layout from "../../components/layout"
 import Pills from "../../components/pills"
@@ -13,9 +15,8 @@ import Seo from "../../components/seo"
 
 const pdfPath = require("../../assets/step-1.pdf").default
 
-console.log({ pdfPath })
-
 const IndexPage = () => {
+  const hyperlinkBtnId = useUID()
   const [numPages, setNumPages] = React.useState(null)
   const [pageNumber, setPageNumber] = React.useState(1)
 
@@ -88,18 +89,26 @@ const IndexPage = () => {
             <span className="mr-2">
               Page {pageNumber} of {numPages}
             </span>
-            <button className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-2">
+            <button
+              className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-2"
+              disabled={pageNumber === 1}
+              onClick={() => setPageNumber(pageNumber - 1)}
+            >
               <ChevronLeftIcon width={16} height={16} fill="white" />
             </button>
-            <button className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-2">
+            <button
+              className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-2"
+              onClick={() => setPageNumber(1)}
+            >
               <ChevronDoubleLeftIcon width={16} height={16} fill="white" />
             </button>
             <select
               className="mr-2 border border-gray-300"
+              value={`option-${pageNumber - 1}`}
               onChange={ev => {
                 const val = ev.target.value
                 const [, index] = val.split("-")
-                setPageNumber(Number.parseInt(index))
+                setPageNumber(Number.parseInt(index) + 1)
               }}
             >
               {Array(numPages)
@@ -110,14 +119,24 @@ const IndexPage = () => {
                   </option>
                 ))}
             </select>
-            <button className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-2">
-              <ChevronRightIcon width={16} height={16} fill="white" />
-            </button>
-            <button className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6">
+            <button
+              className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-2"
+              onClick={() => setPageNumber(numPages)}
+            >
               <ChevronDoubleRightIcon width={16} height={16} fill="white" />
             </button>
+            <button
+              className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6"
+              disabled={pageNumber === numPages}
+              onClick={() => setPageNumber(pageNumber + 1)}
+            >
+              <ChevronRightIcon width={16} height={16} fill="white" />
+            </button>
 
-            <button className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6">
+            <button
+              className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6"
+              id={hyperlinkBtnId}
+            >
               Hyperlink
             </button>
 
@@ -134,6 +153,18 @@ const IndexPage = () => {
           </Document>
         </div>
       )}
+
+      <Hints
+        enabled
+        hints={[
+          {
+            element: `[id='${hyperlinkBtnId}']`,
+            hint: "Click to start hyperlinking",
+            hintPosition: "top-left",
+            hintButtonLabel: "Got it",
+          },
+        ]}
+      />
     </Layout>
   )
 }
