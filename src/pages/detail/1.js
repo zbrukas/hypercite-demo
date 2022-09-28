@@ -1,3 +1,5 @@
+import { Dialog, Transition } from "@headlessui/react"
+import ReactLoading from "react-loading"
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
@@ -19,6 +21,8 @@ const IndexPage = () => {
   const hyperlinkBtnId = useUID()
   const [numPages, setNumPages] = React.useState(null)
   const [pageNumber, setPageNumber] = React.useState(1)
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages)
@@ -136,6 +140,7 @@ const IndexPage = () => {
             <button
               className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6"
               id={hyperlinkBtnId}
+              onClick={() => setIsOpen(true)}
             >
               Hyperlink
             </button>
@@ -144,11 +149,7 @@ const IndexPage = () => {
               Copy Link
             </button>
           </div>
-          <Document
-            file={pdfPath}
-            onLoadError={err => console.error(err)}
-            onLoadSuccess={onDocumentLoadSuccess}
-          >
+          <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}>
             <Page pageNumber={pageNumber} />
           </Document>
         </div>
@@ -165,6 +166,65 @@ const IndexPage = () => {
           },
         ]}
       />
+
+      <Transition appear show={isOpen} as={React.Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+        >
+          <Transition.Child
+            as={React.Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={React.Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  {loading ? (
+                    <div className="flex justify-center">
+                      <ReactLoading type="spokes" color="rgb(249, 115, 22)" />
+                    </div>
+                  ) : (
+                    <>
+                      <Dialog.Description className="mb-4">
+                        Case Center will now automatically detect citations that
+                        match section names and create corresponding hyperlinks
+                      </Dialog.Description>
+
+                      <div className="flex justify-center">
+                        <button
+                          className="bg-cyan-700 p-2 text-white rounded-xl"
+                          onClick={() => setLoading(true)}
+                        >
+                          Continue
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
     </Layout>
   )
 }

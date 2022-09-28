@@ -57,7 +57,7 @@ const Header = () => (
       <button className="bg-neutral-700 p-4 text-white border-white border-r text-sm relative">
         Account Details
       </button>
-      <button className="bg-neutral-700 p-4 text-white border-white border-r text-sm relative">
+      <button className="bg-neutral-700 p-4 text-white text-sm relative">
         Log Out
       </button>
     </nav>
