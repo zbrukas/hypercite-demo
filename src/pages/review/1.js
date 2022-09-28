@@ -1,11 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react"
 import ReactLoading from "react-loading"
-import {
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/solid"
 import { Hints } from "intro.js-react"
 import * as React from "react"
 import { Document, Page, pdfjs } from "react-pdf/dist/umd/entry.webpack5"
@@ -14,10 +8,15 @@ import { useUID } from "react-uid"
 import Layout from "../../components/layout"
 import Pills from "../../components/pills"
 import Seo from "../../components/seo"
-import { navigate } from "gatsby"
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/solid"
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
-const pdfPath = require("../../assets/step-1.pdf").default
+const pdfPath = require("../../assets/step-2.pdf").default
 
 const IndexPage = () => {
   const hyperlinkBtnId = useUID()
@@ -30,15 +29,6 @@ const IndexPage = () => {
     setNumPages(numPages)
   }
 
-  React.useEffect(() => {
-    if (loading) {
-      const t = setTimeout(() => {
-        navigate("/review/1")
-      }, 5000)
-      return () => clearTimeout(t)
-    }
-  }, [loading])
-
   return (
     <Layout>
       <Seo title="Home" />
@@ -48,55 +38,19 @@ const IndexPage = () => {
       <h1 className="text-3xl mb-2 font-bold">
         Catalyst Fund Limited Partnership II vs. IMAX Corporation
       </h1>
-      <h2 className="text-xl font-bold mb-2">View Documents</h2>
-      <button className="bg-neutral-700 px-2 py-1 text-white text-sm rounded-lg mb-10">
-        View all section documents
-      </button>
-      <table className="mb-8">
-        <tbody>
-          <tr>
-            <td className="p-2 bg-neutral-300">
-              <b>Section:</b>
-            </td>
-            <td>J: Factum</td>
-          </tr>
-          <tr>
-            <td className="p-2 bg-neutral-300">
-              <b>Document:</b>
-            </td>
-            <td>0001: Factum - Moving Party, IMAX 24-Sep-2008 - Final</td>
-          </tr>
-          <tr>
-            <td className="p-2 bg-neutral-300">
-              <b>Date:</b>
-            </td>
-            <td>11 August 2022</td>
-          </tr>
-          <tr>
-            <td className="p-2 bg-neutral-300">
-              <b>Date Loaded:</b>
-            </td>
-            <td>11 August 2022 09:19 PM</td>
-          </tr>
-          <tr>
-            <td className="p-2 bg-neutral-300" />
-            <td className="py-4">
-              <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl mr-2">
-                Move
-              </button>
-              <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl mr-2">
-                Remove
-              </button>
-              <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl mr-2">
-                PDF
-              </button>
-              <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl mr-2">
-                Open Original (.pdf)
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="flex flex-col items-start w-fit py-3 px-1 border-red-700 rounded border-2 mb-4">
+        <p className="mb-2">
+          Case Center has automatically detected 16 citations and created
+          corresponding hyperlinks.
+        </p>
+        <p className="mb-2">
+          Review your document's citations. When finished, click below to
+          continue the automated link creation process.
+        </p>
+        <button className="bg-neutral-700 px-3 py-2 text-white text-xs rounded-md mr-2">
+          Continue
+        </button>
+      </div>
 
       {typeof window !== "undefined" && (
         <div className="border border-gray-300 w-fit">
@@ -146,18 +100,6 @@ const IndexPage = () => {
               onClick={() => setPageNumber(pageNumber + 1)}
             >
               <ChevronRightIcon width={16} height={16} fill="white" />
-            </button>
-
-            <button
-              className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6"
-              id={hyperlinkBtnId}
-              onClick={() => setIsOpen(true)}
-            >
-              Hyperlink
-            </button>
-
-            <button className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6">
-              Copy Link
             </button>
           </div>
           <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}>
