@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import * as React from "react"
 
 import Layout from "../components/layout"
@@ -94,9 +95,11 @@ const IndexPage = () => (
           </td>
           <td className="py-2">Yes-No-No</td>
           <td className="py-2">
-            <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
-              View
-            </button>
+            <Link to="/detail/1">
+              <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+                View
+              </button>
+            </Link>
           </td>
           <td className="py-2">
             <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
