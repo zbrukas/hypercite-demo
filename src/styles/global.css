@@ -7,3 +7,9 @@
     font-family: "Albert Sans", system-ui, sans-serif;
   }
 }
+
+.introjs-hint-pulse {
+  background-color: white;
+  border-color: blue;
+  border-width: 4px;
+}

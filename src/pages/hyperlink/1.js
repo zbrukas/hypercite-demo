@@ -48,13 +48,19 @@ const IndexPage = () => {
           {hasValues ? (
             <>
               Click{" "}
-              <button
-                onClick={() => setIsOpen(true)}
-                className="bg-transparent border-none"
-                id={resubmitBtnId}
-              >
-                here
-              </button>{" "}
+              <div className="relative inline">
+                <div
+                  className="absolute"
+                  style={{ left: -10, top: -10 }}
+                  id={resubmitBtnId}
+                />
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="bg-transparent border-none"
+                >
+                  here
+                </button>{" "}
+              </div>
               to re-submit to final hyperlink insertion once all alternative
               names are entered
             </>

@@ -39,7 +39,7 @@ const IndexPage = () => {
           {val}
         </button>
       ))}
-      
+
       <table className="border border-gray-300 mb-8" width="100%">
         <thead>
           <tr>
@@ -102,12 +102,16 @@ const IndexPage = () => {
             <td className="py-2">Yes-No-No</td>
             <td className="py-2" aria-label="actions">
               <Link to="/detail/1">
-                <button
-                  id={viewBtnId}
-                  className="bg-neutral-700 p-2 text-white text-xs rounded-xl"
-                >
-                  View
-                </button>
+                <div className="relative">
+                  <div
+                    className="absolute"
+                    style={{ left: -10, top: -10 }}
+                    id={viewBtnId}
+                  />
+                  <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
+                    View
+                  </button>
+                </div>
               </Link>
             </td>
             <td className="py-2">
@@ -133,7 +137,7 @@ const IndexPage = () => {
             element: `[id='${viewBtnId}']`,
             hint: "View PDF",
             hintPosition: "top-left",
-            hintButtonLabel: "Got it"
+            hintButtonLabel: "Got it",
           },
         ]}
       />

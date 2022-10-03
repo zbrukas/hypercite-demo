@@ -148,13 +148,19 @@ const IndexPage = () => {
               <ChevronRightIcon width={16} height={16} fill="white" />
             </button>
 
-            <button
-              className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6"
-              id={hyperlinkBtnId}
-              onClick={() => setIsOpen(true)}
-            >
-              Hyperlink
-            </button>
+            <div className="relative">
+              <div
+                className="absolute"
+                style={{ left: -10, top: -10 }}
+                id={hyperlinkBtnId}
+              />
+              <button
+                className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6"
+                onClick={() => setIsOpen(true)}
+              >
+                Hyperlink
+              </button>
+            </div>
 
             <button className="bg-cyan-700 p-2 text-white text-xs rounded-xl mr-6">
               Copy Link

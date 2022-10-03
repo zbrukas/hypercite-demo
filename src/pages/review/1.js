@@ -49,12 +49,16 @@ const IndexPage = () => {
           continue the automated link creation process.
         </p>
         <Link to="/hyperlink/1">
-          <button
-            id={continueBtnId}
-            className="bg-neutral-700 px-3 py-2 text-white text-xs rounded-md mr-2"
-          >
-            Continue
-          </button>
+          <div className="relative">
+            <div
+              className="absolute"
+              style={{ left: -10, top: -10 }}
+              id={continueBtnId}
+            />
+            <button className="bg-neutral-700 px-3 py-2 text-white text-xs rounded-md mr-2">
+              Continue
+            </button>
+          </div>
         </Link>
       </div>
 
