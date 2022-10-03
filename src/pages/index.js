@@ -39,6 +39,7 @@ const IndexPage = () => {
           {val}
         </button>
       ))}
+      
       <table className="border border-gray-300 mb-8" width="100%">
         <thead>
           <tr>

@@ -14,12 +14,13 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/solid"
+import { Link } from "gatsby"
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
-const pdfPath = require("../../assets/step-2.pdf").default
+const pdfPath = require("../../assets/step-1.pdf").default
 
 const IndexPage = () => {
-  const hyperlinkBtnId = useUID()
+  const continueBtnId = useUID()
   const [numPages, setNumPages] = React.useState(null)
   const [pageNumber, setPageNumber] = React.useState(1)
   const [isOpen, setIsOpen] = React.useState(false)
@@ -47,9 +48,14 @@ const IndexPage = () => {
           Review your document's citations. When finished, click below to
           continue the automated link creation process.
         </p>
-        <button className="bg-neutral-700 px-3 py-2 text-white text-xs rounded-md mr-2">
-          Continue
-        </button>
+        <Link to="/hyperlink/1">
+          <button
+            id={continueBtnId}
+            className="bg-neutral-700 px-3 py-2 text-white text-xs rounded-md mr-2"
+          >
+            Continue
+          </button>
+        </Link>
       </div>
 
       {typeof window !== "undefined" && (
@@ -116,8 +122,8 @@ const IndexPage = () => {
         enabled
         hints={[
           {
-            element: `[id='${hyperlinkBtnId}']`,
-            hint: "Click to start hyperlinking",
+            element: `[id='${continueBtnId}']`,
+            hint: "Click to continue",
             hintPosition: "top-left",
             hintButtonLabel: "Got it",
           },

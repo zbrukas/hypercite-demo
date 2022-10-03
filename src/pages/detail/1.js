@@ -17,7 +17,7 @@ import Seo from "../../components/seo"
 import { navigate } from "gatsby"
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
-const pdfPath = require("../../assets/step-1.pdf").default
+const pdfPath = require("../../assets/non-hyperlinked.pdf").default
 
 const IndexPage = () => {
   const hyperlinkBtnId = useUID()
