@@ -166,11 +166,16 @@ const IndexPage = () => {
               Copy Link
             </button>
           </div>
-          <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}>
+          <Document
+            file={pdfPath}
+            onLoadSuccess={onDocumentLoadSuccess}
+            onItemClick={({ pageNumber }) => setPageNumber(pageNumber)}
+          >
             <Page
               pageNumber={pageNumber}
               renderAnnotationLayer
               renderTextLayer
+              renderMode="svg"
             />
           </Document>
         </div>

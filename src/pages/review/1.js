@@ -112,11 +112,16 @@ const IndexPage = () => {
               <ChevronRightIcon width={16} height={16} fill="white" />
             </button>
           </div>
-          <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}>
+          <Document
+            file="https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf"
+            onLoadSuccess={onDocumentLoadSuccess}
+            onItemClick={({ pageNumber }) => setPageNumber(pageNumber)}
+          >
             <Page
               pageNumber={pageNumber}
               renderAnnotationLayer
               renderTextLayer
+              renderMode="svg"
             />
           </Document>
         </div>
