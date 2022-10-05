@@ -1,15 +1,12 @@
 import { Link } from "gatsby"
 import { Hints } from "intro.js-react"
 import * as React from "react"
-import { useUID } from "react-uid"
 
 import Layout from "../components/layout"
 import Pills from "../components/pills"
 import Seo from "../components/seo"
 
 const IndexPage = () => {
-  const viewBtnId = useUID()
-
   return (
     <Layout>
       <Seo title="Home" />
@@ -106,7 +103,7 @@ const IndexPage = () => {
                   <div
                     className="absolute"
                     style={{ left: -10, top: -10 }}
-                    id={viewBtnId}
+                    id="view-btn"
                   />
                   <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
                     View
@@ -134,7 +131,7 @@ const IndexPage = () => {
         enabled
         hints={[
           {
-            element: `[id='${viewBtnId}']`,
+            element: `#view-btn`,
             hint: "View PDF",
             hintPosition: "top-left",
             hintButtonLabel: "Got it",
