@@ -118,9 +118,8 @@ const IndexPage = () => {
             <th className="py-2" align="left">
               If different from "name",
               <br />
-              how does your legal filling cite
-              <br />
-              to this document?
+              how does your legal filling <br />
+              cite to this document?
             </th>
             <th className="py-2" align="left">
               Bundle Number (106F)
