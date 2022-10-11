@@ -115,7 +115,7 @@ const IndexPage = () => {
             <th className="py-2" align="left">
               Date
             </th>
-            <th className="py-2" align="left">
+            <th className="py-2" align="left" style={{minWidth: 250}}>
               If different from "name",
               <br />
               how does your legal filling <br />
@@ -161,8 +161,8 @@ const IndexPage = () => {
               <td className="p-2">25 July 2022</td>
               <td className="py-2">
                 <input
-                  className="px-2 border border-gray-400 placeholder:text-black"
-                  placeholder="Insert name used in factum"
+                  className="px-2 border border-gray-400 placeholder:text-grey"
+                  placeholder="Insert factum name"
                   onChange={e =>
                     setFormValues(val => ({
                       ...val,
