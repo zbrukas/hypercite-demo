@@ -113,7 +113,7 @@ const IndexPage = () => {
             </button>
           </div>
           <Document
-            file="https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf"
+            file={pdfPath}
             onLoadSuccess={onDocumentLoadSuccess}
             onItemClick={({ pageNumber }) => setPageNumber(pageNumber)}
           >
