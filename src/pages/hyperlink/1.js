@@ -115,7 +115,7 @@ const IndexPage = () => {
             <th className="py-2" align="left">
               Date
             </th>
-            <th className="py-2" align="left" style={{minWidth: 250}}>
+            <th className="py-2" align="left" style={{ minWidth: 250 }}>
               If different from "name",
               <br />
               how does your legal filling <br />
@@ -134,16 +134,26 @@ const IndexPage = () => {
         </thead>
         <tbody>
           {[
-            ["Amended Notice of Application", "1:AA1"],
-            ["Summons and Verified Complanint of U", "2:AA2"],
-            ["Compendium", "3:AA3"],
-            ["Tab 1 Compendium", "4:AA4"],
-            ["Tab 2 Compendium", "5:AA5 - AA7"],
-            ["Tab 3 - Amended Note of Application", "6:AA8"],
-            ["Tab 4 - Affidavit of Glen Banks", "7:AA9"],
-            ["Tab 5 - Supplemental Affidavit of Glen Banks", "8:AA10"],
-            ["Tab 6 - Trust Indenture", "9:AA11"],
-            ["Tab 7 - Letter from Cede & CO", "10:AA12"],
+            ["Amended Notice of Application", "1:J1-26"],
+            ["Summons and Verified Complanint of U", "2:J1-27"],
+            ["Compendium", "3:J1-28"],
+            ["Tab 1 Compendium", "4:J1-29"],
+            ["Tab 2 Compendium", "5:J1-30 - J1-32"],
+            ["Tab 3 - Amended Note of Application", "6:J1-33"],
+            ["Tab 4 - Affidavit of Glen Banks", "7:J1-34"],
+            ["Tab 5 - Supplemental Affidavit of Glen Banks", "8:J1-35"],
+            ["Tab 6 - Trust Indenture", "9:J1-36"],
+            ["Tab 7 - Letter from Cede & CO", "10:J1-37"],
+            ["Tab 8 - Affidavit of Thomas Rerrign", "11:J1-38"],
+            ["Tab 10 - Consent Solicitation", "12:J1-39"],
+            ["Tab 11 - Cross-examination Gelfond", "13:J1-40"],
+            ["Tab 12 - Consent and Forbearance Agreement", "14:J1-41 - J1-42"],
+            ["Tab 13 - Master Securities Loan Agreement", "15:J1-43 - J1-44"],
+            ["Tab 14 - Catalyst Press Release", "16:J1-45"],
+            ["Tab 15 - Cross-examination of Gabriel De Alba", "17:J1-46"],
+            ["Tab 16 - Lock-Up Agreement", "18:J1-47"],
+            ["Tab 17 - Catalyst Press Release", "19:J1-48"],
+            ["Factum - Moving Party, IMAX 24 -Sep-2008", "20:J1-49 - J1-73"],
           ].map(([docName, bundle], index) => (
             <tr key={bundle}>
               <td className="py-2 pl-2" aria-label="controls">
@@ -156,12 +166,14 @@ const IndexPage = () => {
                   Remove
                 </button>
               </td>
-              <td className="p-2">{index.toFixed(0).padStart(4, "0")}</td>
+              <td className="p-2">{(index + 1).toFixed(0).padStart(4, "0")}</td>
               <td className="p-2">{docName}</td>
-              <td className="p-2">25 July 2022</td>
-              <td className="py-2">
+              <td className="p-2">
+                {index < 19 ? "25 July 2022" : "01 August 2022"}
+              </td>
+              <td className="py-2 pr-4">
                 <input
-                  className="px-2 border border-gray-400 placeholder:text-grey"
+                  className="px-2 border border-gray-400 placeholder:text-grey w-full"
                   placeholder="Insert factum name"
                   onChange={e =>
                     setFormValues(val => ({
@@ -189,8 +201,18 @@ const IndexPage = () => {
               </td>
               <td className="py-2">
                 <button className="bg-neutral-700 p-2 text-white text-xs rounded-xl">
-                  Open Original (.pdf)
+                  {index > 1 ? "Open Original (.pdf)" : "Open Original (.docx)"}
                 </button>
+                {index === 19 && (
+                  <>
+                    <button className="ml-2 bg-neutral-700 p-2 text-white text-xs rounded-xl w-8">
+                      S
+                    </button>
+                    <button className="ml-2 bg-neutral-700 p-2 text-white text-xs rounded-xl w-8">
+                      T
+                    </button>
+                  </>
+                )}
               </td>
             </tr>
           ))}
