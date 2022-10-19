@@ -28,7 +28,7 @@ const IndexPage = () => {
     if (isOpen && typeof window !== "undefined") {
       const t = setTimeout(() => {
         tryAutomaticDownload(pdfPath)
-        navigate("/")
+        navigate("/final/1")
       }, 3000)
       return () => clearTimeout(t)
     }
