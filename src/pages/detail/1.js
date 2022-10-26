@@ -169,6 +169,7 @@ const IndexPage = () => {
           <Document
             file={pdfPath}
             onLoadSuccess={onDocumentLoadSuccess}
+            externalLinkTarget="_blank"
             onItemClick={({ pageNumber }) => setPageNumber(pageNumber)}
           >
             <Page

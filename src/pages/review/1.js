@@ -113,6 +113,7 @@ const IndexPage = () => {
             </button>
           </div>
           <Document
+            externalLinkTarget="_blank"
             file={pdfPath}
             onLoadSuccess={onDocumentLoadSuccess}
             onItemClick={({ pageNumber }) => setPageNumber(pageNumber)}

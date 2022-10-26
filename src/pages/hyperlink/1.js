@@ -46,24 +46,20 @@ const IndexPage = () => {
       <div className="p-2 bg-amber-100 mb-4 border-y border-gray-500">
         <p className="mb-0 text-center">
           {hasValues ? (
-            <>
-              Click{" "}
-              <div className="relative inline">
-                <div
-                  className="absolute"
-                  style={{ left: -10, top: -10 }}
-                  id={resubmitBtnId}
-                />
-                <button
-                  onClick={() => setIsOpen(true)}
-                  className="bg-transparent border-none"
-                >
-                  here
-                </button>{" "}
-              </div>
-              to re-submit to final hyperlink insertion once all alternative
-              names are entered
-            </>
+            <div className="relative inline">
+              <div
+                className="absolute"
+                style={{ left: -10, top: -10 }}
+                id={resubmitBtnId}
+              />
+              <button
+                onClick={() => setIsOpen(true)}
+                className="bg-transparent border-none"
+              >
+                Click here to re-submit to final hyperlink insertion once all
+                alternative names are entered
+              </button>
+            </div>
           ) : (
             `
                 You have started the linking process' second step. To complete the
